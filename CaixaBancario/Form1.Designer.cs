@@ -28,12 +28,124 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            label1 = new Label();
+            label2 = new Label();
+            lblSaldo = new Label();
+            label4 = new Label();
+            numValor = new NumericUpDown();
+            numLimite = new NumericUpDown();
+            btDepositar = new Button();
+            btSacar = new Button();
+            ((System.ComponentModel.ISupportInitialize)numValor).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numLimite).BeginInit();
+            SuspendLayout();
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 18F);
+            label1.Location = new Point(35, 48);
+            label1.Name = "label1";
+            label1.Size = new Size(92, 41);
+            label1.TabIndex = 0;
+            label1.Text = "Valor:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 18F);
+            label2.Location = new Point(57, 287);
+            label2.Name = "label2";
+            label2.Size = new Size(99, 41);
+            label2.TabIndex = 1;
+            label2.Text = "Saldo:";
+            // 
+            // lblSaldo
+            // 
+            lblSaldo.AutoSize = true;
+            lblSaldo.Font = new Font("Segoe UI", 15F);
+            lblSaldo.Location = new Point(212, 287);
+            lblSaldo.Name = "lblSaldo";
+            lblSaldo.Size = new Size(94, 35);
+            lblSaldo.TabIndex = 2;
+            lblSaldo.Text = "R$ 0,00";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 18F);
+            label4.Location = new Point(35, 371);
+            label4.Name = "label4";
+            label4.Size = new Size(105, 41);
+            label4.TabIndex = 3;
+            label4.Text = "Limite:";
+            // 
+            // numValor
+            // 
+            numValor.Font = new Font("Segoe UI", 18F);
+            numValor.Location = new Point(133, 42);
+            numValor.Name = "numValor";
+            numValor.Size = new Size(150, 47);
+            numValor.TabIndex = 4;
+            // 
+            // numLimite
+            // 
+            numLimite.Font = new Font("Segoe UI", 18F);
+            numLimite.Location = new Point(146, 371);
+            numLimite.Name = "numLimite";
+            numLimite.Size = new Size(150, 47);
+            numLimite.TabIndex = 5;
+            // 
+            // btDepositar
+            // 
+            btDepositar.Font = new Font("Segoe UI", 18F);
+            btDepositar.Location = new Point(70, 143);
+            btDepositar.Name = "btDepositar";
+            btDepositar.Size = new Size(180, 54);
+            btDepositar.TabIndex = 6;
+            btDepositar.Text = "Depositar";
+            btDepositar.UseVisualStyleBackColor = true;
+            // 
+            // btSacar
+            // 
+            btSacar.Font = new Font("Segoe UI", 18F);
+            btSacar.Location = new Point(285, 143);
+            btSacar.Name = "btSacar";
+            btSacar.Size = new Size(180, 54);
+            btSacar.TabIndex = 7;
+            btSacar.Text = "Sacar";
+            btSacar.UseVisualStyleBackColor = true;
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(btSacar);
+            Controls.Add(btDepositar);
+            Controls.Add(numLimite);
+            Controls.Add(numValor);
+            Controls.Add(label4);
+            Controls.Add(lblSaldo);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Name = "Form1";
+            Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)numValor).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numLimite).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label label1;
+        private Label label2;
+        private Label lblSaldo;
+        private Label label4;
+        private NumericUpDown numValor;
+        private NumericUpDown numLimite;
+        private Button btDepositar;
+        private Button btSacar;
     }
 }
