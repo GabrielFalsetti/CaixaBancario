@@ -36,6 +36,7 @@
             numLimite = new NumericUpDown();
             btDepositar = new Button();
             btSacar = new Button();
+            lblDepErro = new Label();
             ((System.ComponentModel.ISupportInitialize)numValor).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numLimite).BeginInit();
             SuspendLayout();
@@ -85,6 +86,7 @@
             numValor.Font = new Font("Segoe UI", 18F);
             numValor.Location = new Point(116, 32);
             numValor.Margin = new Padding(3, 2, 3, 2);
+            numValor.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
             numValor.Name = "numValor";
             numValor.Size = new Size(131, 39);
             numValor.TabIndex = 4;
@@ -94,6 +96,8 @@
             numLimite.Font = new Font("Segoe UI", 18F);
             numLimite.Location = new Point(128, 278);
             numLimite.Margin = new Padding(3, 2, 3, 2);
+            numLimite.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
+            numLimite.Minimum = new decimal(new int[] { 100000000, 0, 0, int.MinValue });
             numLimite.Name = "numLimite";
             numLimite.Size = new Size(131, 39);
             numLimite.TabIndex = 5;
@@ -121,11 +125,21 @@
             btSacar.Text = "Sacar";
             btSacar.UseVisualStyleBackColor = true;
             // 
+            // lblDepErro
+            // 
+            lblDepErro.AutoSize = true;
+            lblDepErro.Font = new Font("Segoe UI", 12F);
+            lblDepErro.Location = new Point(31, 166);
+            lblDepErro.Name = "lblDepErro";
+            lblDepErro.Size = new Size(0, 21);
+            lblDepErro.TabIndex = 8;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(700, 338);
+            Controls.Add(lblDepErro);
             Controls.Add(btSacar);
             Controls.Add(btDepositar);
             Controls.Add(numLimite);
@@ -153,5 +167,6 @@
         private NumericUpDown numLimite;
         private Button btDepositar;
         private Button btSacar;
+        private Label lblDepErro;
     }
 }
