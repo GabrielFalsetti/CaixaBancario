@@ -44,9 +44,9 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 18F);
-            label1.Location = new Point(31, 36);
+            label1.Location = new Point(35, 48);
             label1.Name = "label1";
-            label1.Size = new Size(72, 32);
+            label1.Size = new Size(92, 41);
             label1.TabIndex = 0;
             label1.Text = "Valor:";
             // 
@@ -54,9 +54,9 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 18F);
-            label2.Location = new Point(50, 215);
+            label2.Location = new Point(57, 287);
             label2.Name = "label2";
-            label2.Size = new Size(78, 32);
+            label2.Size = new Size(99, 41);
             label2.TabIndex = 1;
             label2.Text = "Saldo:";
             // 
@@ -64,9 +64,9 @@
             // 
             lblSaldo.AutoSize = true;
             lblSaldo.Font = new Font("Segoe UI", 15F);
-            lblSaldo.Location = new Point(186, 215);
+            lblSaldo.Location = new Point(213, 287);
             lblSaldo.Name = "lblSaldo";
-            lblSaldo.Size = new Size(77, 28);
+            lblSaldo.Size = new Size(94, 35);
             lblSaldo.TabIndex = 2;
             lblSaldo.Text = "R$ 0,00";
             // 
@@ -74,37 +74,35 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 18F);
-            label4.Location = new Point(31, 278);
+            label4.Location = new Point(35, 371);
             label4.Name = "label4";
-            label4.Size = new Size(84, 32);
+            label4.Size = new Size(105, 41);
             label4.TabIndex = 3;
             label4.Text = "Limite:";
             // 
             // numValor
             // 
             numValor.Font = new Font("Segoe UI", 18F);
-            numValor.Location = new Point(116, 32);
-            numValor.Margin = new Padding(3, 2, 3, 2);
+            numValor.Location = new Point(133, 43);
             numValor.Name = "numValor";
-            numValor.Size = new Size(131, 39);
+            numValor.Size = new Size(150, 47);
             numValor.TabIndex = 4;
             // 
             // numLimite
             // 
             numLimite.Font = new Font("Segoe UI", 18F);
-            numLimite.Location = new Point(128, 278);
-            numLimite.Margin = new Padding(3, 2, 3, 2);
+            numLimite.Location = new Point(146, 371);
+            numLimite.Minimum = new decimal(new int[] { -727379969, 232, 0, int.MinValue });
             numLimite.Name = "numLimite";
-            numLimite.Size = new Size(131, 39);
+            numLimite.Size = new Size(150, 47);
             numLimite.TabIndex = 5;
             // 
             // btDepositar
             // 
             btDepositar.Font = new Font("Segoe UI", 18F);
-            btDepositar.Location = new Point(61, 107);
-            btDepositar.Margin = new Padding(3, 2, 3, 2);
+            btDepositar.Location = new Point(70, 143);
             btDepositar.Name = "btDepositar";
-            btDepositar.Size = new Size(158, 40);
+            btDepositar.Size = new Size(181, 53);
             btDepositar.TabIndex = 6;
             btDepositar.Text = "Depositar";
             btDepositar.UseVisualStyleBackColor = true;
@@ -113,19 +111,19 @@
             // btSacar
             // 
             btSacar.Font = new Font("Segoe UI", 18F);
-            btSacar.Location = new Point(249, 107);
-            btSacar.Margin = new Padding(3, 2, 3, 2);
+            btSacar.Location = new Point(285, 143);
             btSacar.Name = "btSacar";
-            btSacar.Size = new Size(158, 40);
+            btSacar.Size = new Size(181, 53);
             btSacar.TabIndex = 7;
             btSacar.Text = "Sacar";
             btSacar.UseVisualStyleBackColor = true;
+            btSacar.Click += btSacar_Click;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(700, 338);
+            ClientSize = new Size(800, 451);
             Controls.Add(btSacar);
             Controls.Add(btDepositar);
             Controls.Add(numLimite);
@@ -134,7 +132,6 @@
             Controls.Add(lblSaldo);
             Controls.Add(label2);
             Controls.Add(label1);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "Form1";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)numValor).EndInit();
