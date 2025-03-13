@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             label1 = new Label();
             label2 = new Label();
             lblSaldo = new Label();
@@ -40,6 +41,8 @@
             btLimparValor = new Button();
             label3 = new Label();
             lblLimiteSaque = new Label();
+            tempJuros = new System.Windows.Forms.Timer(components);
+            lblTaxa = new Label();
             ((System.ComponentModel.ISupportInitialize)numValor).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numLimite).BeginInit();
             SuspendLayout();
@@ -144,9 +147,9 @@
             lblErro.ForeColor = Color.Red;
             lblErro.Location = new Point(101, 269);
             lblErro.Name = "lblErro";
-            lblErro.Size = new Size(108, 21);
+            lblErro.Size = new Size(106, 21);
             lblErro.TabIndex = 8;
-            lblErro.Text = "caixa de erro";
+            lblErro.Text = "label de erro";
             lblErro.Visible = false;
             // 
             // btLimparValor
@@ -185,12 +188,30 @@
             lblLimiteSaque.TabIndex = 11;
             lblLimiteSaque.Text = "(Limite para Sacar : )";
             // 
+            // tempJuros
+            // 
+            tempJuros.Enabled = true;
+            tempJuros.Interval = 3000;
+            tempJuros.Tick += tempJuros_Tick;
+            // 
+            // lblTaxa
+            // 
+            lblTaxa.AutoSize = true;
+            lblTaxa.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lblTaxa.ForeColor = Color.LightCoral;
+            lblTaxa.Location = new Point(140, 360);
+            lblTaxa.Name = "lblTaxa";
+            lblTaxa.Size = new Size(85, 21);
+            lblTaxa.TabIndex = 12;
+            lblTaxa.Text = "label taxa";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.WindowFrame;
             ClientSize = new Size(533, 573);
+            Controls.Add(lblTaxa);
             Controls.Add(lblLimiteSaque);
             Controls.Add(label3);
             Controls.Add(btLimparValor);
@@ -206,6 +227,8 @@
             Margin = new Padding(3, 2, 3, 2);
             Name = "Form1";
             Text = "Form1";
+            FormClosing += Form1_FormClosing;
+            FormClosed += Form1_FormClosed;
             ((System.ComponentModel.ISupportInitialize)numValor).EndInit();
             ((System.ComponentModel.ISupportInitialize)numLimite).EndInit();
             ResumeLayout(false);
@@ -226,5 +249,7 @@
         private Button btLimparValor;
         private Label label3;
         private Label lblLimiteSaque;
+        private System.Windows.Forms.Timer tempJuros;
+        private Label lblTaxa;
     }
 }

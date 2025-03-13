@@ -4,7 +4,7 @@ namespace CaixaBancario
     {
         /* ---------- VARIÁVEIS GLOBAIS ---------- */
 
-        double saldo = 500, limite = 300;
+        double saldo = 500, limite = 300, taxa = 0.01;
 
         /* ---------- INICIALIZAÇÕES ---------- */
 
@@ -17,7 +17,9 @@ namespace CaixaBancario
 
             lblSaldo.Text = saldo.ToString("c");
             numLimite.Value = (decimal)limite;
-            
+
+            lblTaxa.Text = $"Taxa : {taxa * 100}% a cada {tempJuros.Interval / 1000}s";
+
             AtualizarSaldo(saldo);
         }
 
@@ -32,11 +34,15 @@ namespace CaixaBancario
             if (n > 0) lblSaldo.ForeColor = Color.LightGreen;
             else lblSaldo.ForeColor = Color.Red;
 
-            // texto limite real
+            // texto limite
             double limiteSaque = 0;
+
             if (saldo >= 0) limiteSaque = saldo + limite;
             else limiteSaque = limite + saldo;
+                if (limiteSaque < 0) limiteSaque = 0; // Exibe 0, não um valor negativo, mas o saldo ainda pode ser negativo
+
             lblLimiteSaque.Text = $"(Limite para Sacar : {limiteSaque.ToString("c")})";
+
         }
 
         /* ---------- PROGRAMA ---------- */
@@ -83,6 +89,27 @@ namespace CaixaBancario
         {
             numValor.Value = 0;
             lblErro.Text = "";
+        }
+
+        private void tempJuros_Tick(object sender, EventArgs e)
+        {
+            saldo += saldo * taxa;
+            lblSaldo.Text = saldo.ToString("c");
+
+            AtualizarSaldo(saldo);
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult r = MessageBox.Show("Deseja mesmo sair da aplicação?", "", MessageBoxButtons.YesNo);
+
+            if (r == DialogResult.No) e.Cancel = true;
+            else e.Cancel = false;
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            MessageBox.Show("Ta duro dorme");
         }
     }
 }
