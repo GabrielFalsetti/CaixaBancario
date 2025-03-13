@@ -36,8 +36,10 @@ namespace CaixaBancario
 
             // texto limite
             double limiteSaque = 0;
+
             if (saldo >= 0) limiteSaque = saldo + limite;
             else limiteSaque = limite + saldo;
+                if (limiteSaque < 0) limiteSaque = 0; // Exibe 0, não um valor negativo, mas o saldo ainda pode ser negativo
 
             lblLimiteSaque.Text = $"(Limite para Sacar : {limiteSaque.ToString("c")})";
 
