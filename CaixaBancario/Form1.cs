@@ -5,6 +5,8 @@ namespace CaixaBancario
         /* ---------- VARIÁVEIS GLOBAIS ---------- */
 
         double saldo = 500, limite = 300;
+        double taxa = 0.01;
+        double taxaCruel = 0.8;
 
         /* ---------- INICIALIZAÇÕES ---------- */
 
@@ -17,7 +19,7 @@ namespace CaixaBancario
 
             lblSaldo.Text = saldo.ToString("c");
             numLimite.Value = (decimal)limite;
-            
+
             AtualizarSaldo(saldo);
         }
 
@@ -83,6 +85,44 @@ namespace CaixaBancario
         {
             numValor.Value = 0;
             lblErro.Text = "";
+        }
+
+
+        private void tempJuros_Tick(object sender, EventArgs e)
+        {
+            if (saldo > 0)
+            {
+                saldo += saldo * taxa;
+                AtualizarSaldo(saldo);
+            }
+            else if (saldo < 0)
+            {
+                saldo += saldo * taxaCruel;
+                AtualizarSaldo(saldo);
+                lblTaxa.Text = $"Taxa Cruel: {taxaCruel * 100}% cada {tempJuros.Interval / 1000} (Segundos)";
+            }
+
+            lblSaldo.Text = saldo.ToString("c");
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            lblTaxa.Text = $"Taxa: {taxa * 100}% cada {tempJuros.Interval / 1000} (Segundos)";
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult r = MessageBox.Show("Deseja realmente sair do banco ?",
+                                             "", MessageBoxButtons.YesNo);
+            if (r == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            MessageBox.Show("Txau");
         }
     }
 }
